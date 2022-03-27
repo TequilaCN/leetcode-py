@@ -17,27 +17,23 @@
 from typing import List
 
 
-class Solution(object):
-    @staticmethod
-    def find_content_children(g: List[int], s: List[int]) -> int:
-        g = sorted(g)
-        s = sorted(s)
-        if not len(g) or not len(s):
-            return 0
-        g_index = 0
-        s_index = 0
-        result = 0
-        while g_index < len(g) and s_index < len(s):
-            if s[s_index] >= g[g_index]:
-                g_index += 1
-                result +=1
-            s_index += 1
-        return result
-
-
+def find_content_children(g: List[int], s: List[int]) -> int:
+    g = sorted(g)
+    s = sorted(s)
+    if not len(g) or not len(s):
+        return 0
+    g_index = 0
+    s_index = 0
+    result = 0
+    while g_index < len(g) and s_index < len(s):
+        if s[s_index] >= g[g_index]:
+            g_index += 1
+            result += 1
+        s_index += 1
+    return result
 
 
 if __name__ == '__main__':
-    Solution().find_content_children([1,], [2,])
+    print(find_content_children([1], [2]))
 
 
